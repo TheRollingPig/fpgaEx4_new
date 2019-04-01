@@ -1,0 +1,157 @@
+###############################################################################
+#
+# IAR ELF Linker V8.20.2.14835/W32 for ARM                25/Jan/2019  14:56:12
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  C:\Users\liucj97\Desktop\M0test\Debug\Exe\M0test.out
+#    Map file     =  C:\Users\liucj97\Desktop\M0test\Debug\List\M0test.map
+#    Command line =  
+#        -f C:\Users\liucj97\AppData\Local\Temp\EW41B.tmp
+#        (C:\Users\liucj97\Desktop\M0test\Debug\Obj\main.o
+#        C:\Users\liucj97\Desktop\M0test\Debug\Obj\startup.o
+#        C:\Users\liucj97\Desktop\M0test\Debug\Obj\UART_IRQHandler.o -o
+#        C:\Users\liucj97\Desktop\M0test\Debug\Exe\M0test.out --map
+#        C:\Users\liucj97\Desktop\M0test\Debug\List\M0test.map --config
+#        D:\IAR\arm\CONFIG\generic_cortex.icf --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x0007ffff] { ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block PROC_STACK with size = 0M, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x20000000 to 0x2000ffff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind        Address   Size  Object
+  -------   ----        -------   ----  ------
+"A0":                             0xc0
+  .intvec   ro code  0x00000000   0xc0  startup.o [1]
+                   - 0x000000c0   0xc0
+
+"P1":                             0xe0
+  .text     ro code  0x000000c0   0x6c  main.o [1]
+  .text     ro code  0x0000012c   0x1e  cmain.o [4]
+  .text     ro code  0x0000014a    0x2  startup.o [1]
+  .text     ro code  0x0000014c   0x1c  startup.o [1]
+  .text     ro code  0x00000168    0x8  exit.o [3]
+  .text     ro code  0x00000170    0xa  cexit.o [4]
+  .text     ro code  0x0000017c   0x14  exit.o [5]
+  .text     ro code  0x00000190    0xc  cstartup_M.o [4]
+  .text     ro code  0x0000019c    0x4  UART_IRQHandler.o [1]
+                   - 0x000001a0   0xe0
+
+"P2":                            0x400
+  CSTACK             0x20000000  0x400  <Block>
+    CSTACK  uninit   0x20000000  0x400  <Block tail>
+                   - 0x20000400  0x400
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  rw data
+    ------             -------  -------
+C:\Users\liucj97\Desktop\M0test\Debug\Obj: [1]
+    UART_IRQHandler.o        4
+    main.o                 108
+    startup.o              222
+    -----------------------------------
+    Total:                 334
+
+command line: [2]
+    -----------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                   8
+    -----------------------------------
+    Total:                   8
+
+rt6M_tl.a: [4]
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            12
+    -----------------------------------
+    Total:                  52
+
+shb_l.a: [5]
+    exit.o                  20
+    -----------------------------------
+    Total:                  20
+
+    Gaps                     2
+    Linker created                1 024
+---------------------------------------
+    Grand Total:           416    1 024
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address  Size  Type      Object
+-----                      -------  ----  ----      ------
+?main                   0x0000012d        Code  Gb  cmain.o [4]
+CSTACK$$Base            0x20000000         --   Gb  - Linker created -
+CSTACK$$Limit           0x20000400         --   Gb  - Linker created -
+Region$$Table$$Base     0x00000000         --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000000         --   Gb  - Linker created -
+UART_IRQHandler         0x0000019d   0x4  Code  Gb  UART_IRQHandler.o [1]
+__cmain                 0x0000012d        Code  Gb  cmain.o [4]
+__exit                  0x0000017d  0x14  Code  Gb  exit.o [5]
+__iar_program_start     0x00000191        Code  Gb  cstartup_M.o [4]
+__iar_systems$$module {Abs}
+                        0x00000001        Data  Gb  command line/config [2]
+__low_level_init        0x0000014f        Code  Gb  startup.o [1]
+__vector_table          0x00000000        Data  Gb  startup.o [1]
+_call_main              0x00000139        Code  Gb  cmain.o [4]
+_exit                   0x00000171        Code  Gb  cexit.o [4]
+_main                   0x00000147        Code  Gb  cmain.o [4]
+exit                    0x00000169   0x8  Code  Gb  exit.o [3]
+main                    0x000000c1  0x6c  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\liucj97\Desktop\M0test\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+[5] = shb_l.a
+
+    416 bytes of readonly  code memory
+  1 024 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
